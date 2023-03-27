@@ -1,4 +1,4 @@
-#include <stdarg.h>
+#includ<F8>e <stdarg.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>
@@ -41,6 +41,16 @@ int _printf(const char *format, ...)
 				else if (*format == '%')
 				{
 					putchar('%');
+					length++;
+				}
+				else if (*format == 'd')
+				{
+					putchar(va_arg(pa, int));
+					length++;
+				}
+				else if (*format == 'i')
+				{
+					putchar(va_arg(pa, int);
 					length++;
 				}
 				format++;
