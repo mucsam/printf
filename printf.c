@@ -53,5 +53,10 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
+	else
+	{
+		length += length;
+	}
+
 	return (length);
 }
