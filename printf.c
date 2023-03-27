@@ -1,16 +1,20 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * _printf - produces output according to a format
  * @format: directives
  *
- * Return: prints the output
+ * Return: The number of characters printed
  */
 int _printf(const char *format, ...)
 {
 	va_list pa;
+	int length = 0;
+	size_t j;
+	char *string;
 
 	va_start(pa, format);
 	if (format != NULL)
@@ -23,23 +27,31 @@ int _printf(const char *format, ...)
 				if (*format == 'c')
 				{
 					putchar(va_arg(pa, int));
+					length++;
 				}
 				else if (*format == 's')
 				{
-					printf("%s", va_arg(pa, char *));
+					string = va_arg(pa, char *);
+					for (j = 0; j < strlen(string); j++)
+					{
+						putchar(string[j]);
+						length++;
+					}
 				}
 				else if (*format == '%')
 				{
 					putchar('%');
+					length++;
 				}
 				format++;
 			}
 			else
 			{
 				putchar(*format);
+				length++;
 				format++;
 			}
 		}
 	}
-	return (0);
+	return (length);
 }
