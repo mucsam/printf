@@ -24,6 +24,14 @@ int _printf(const char *format, ...)
 				{
 					putchar(va_arg(pa, int));
 				}
+				else if (*format == 's')
+				{
+					printf("%s", va_arg(pa, char *));
+				}
+				else if (*format == '%')
+				{
+					putchar('%');
+				}
 				format++;
 			}
 			else
