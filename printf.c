@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 				}
 				else if (*format == 'i')
 				{
-					putchar(va_arg(pa, int);
+					putchar(va_arg(pa, int));
 					length++;
 				}
 				format++;
